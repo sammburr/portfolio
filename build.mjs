@@ -1,5 +1,5 @@
 import { execSync } from "child_process";
-import { mkdirSync } from "fs";
+import { mkdirSync, cpSync } from "fs";
 import { join } from "path";
 
 const root = new URL(".", import.meta.url).pathname;
