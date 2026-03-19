@@ -17,4 +17,6 @@ execSync("npm run build", { cwd: libDir, stdio: "inherit" });
 console.log("Running site build...");
 execSync("npm run build", { cwd: siteDir, stdio: "inherit" });
 
+cpSync(join(siteDir, "dist"), outDist, { recursive: true });
+
 console.log("Done: Root index.html and main.js are ready.");
