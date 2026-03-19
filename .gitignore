@@ -2,8 +2,9 @@
 /*/node_modules
 /dist
 /*/dist
-package-lock.json
 /.vscode
+
+_worker.js
 
 # wrangler files
 .wrangler
@@ -11,4 +12,3 @@ package-lock.json
 !.dev.vars.example
 .env*
 !.env.example
-wrangler.jsonc

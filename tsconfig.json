@@ -9,5 +9,5 @@
     "module": "esnext",
     "target": "es2020"
   },
-  "include": ["./*"]
+  "include": ["site/src/worker.ts"]
 }
