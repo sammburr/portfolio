@@ -4,3 +4,11 @@
 /*/dist
 package-lock.json
 /.vscode
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
+wrangler.jsonc

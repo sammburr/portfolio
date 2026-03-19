@@ -2,9 +2,12 @@
   "name": "index",
   "version": "1.0.0",
   "scripts": {
-    "build": "node build.mjs"
+    "build": "node build.mjs",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev"
   },
   "devDependencies": {
-    "esbuild": "^0.24.0"
+    "esbuild": "^0.24.0",
+    "wrangler": "^4.75.0"
   }
 }
