@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "lib": ["../lib/src/index.ts"],
+      "lib/*": ["../lib/src/*"]
+    },
+    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "es2020"
+  },
+  "include": ["src/**/*"]
+}

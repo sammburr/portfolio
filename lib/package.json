@@ -1,0 +1,11 @@
+{
+  "name": "my-lib",
+  "version": "1.0.0",
+  "module": "./dist/index.js",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}
