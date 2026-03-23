@@ -3,7 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "lib": ["../lib/src/index.ts"],
-      "lib/*": ["../lib/src/*"]
+      "lib/*": ["../lib/src/*"],
+      "gsap": ["./src/gsap-public/esm/index.js"]
     },
     "moduleResolution": "node",
     "module": "esnext",

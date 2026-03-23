@@ -1,0 +1,145 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  overflow: hidden;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#vectorfield-canvas {
+  cursor: crosshair;
+}
+
+.name-cont {
+  padding: 10px;
+  position: absolute;
+  font-size: xx-large;
+}
+
+#proj-cont-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+  max-width: 90vw;
+}
+
+.project-div {
+  padding: 15px;
+  box-sizing: border-box;
+
+  max-width: 800px;
+  width: 100%;
+  backdrop-filter: blur(3px);
+  box-shadow: 0px 4px 10px 2px rgb(255, 255, 255), 0px 3px 10px 2px rgb(173, 173, 173);
+  overflow: visible;
+
+  border-radius: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.049);
+
+}
+
+.proj-title {
+  font-size: large;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.proj-sub {
+  color: rgb(103, 103, 103);
+  font-weight: bold;
+  font-style: italic;
+  padding-bottom: 10px;
+}
+
+.proj-card {
+  min-height: 300px;
+  min-width: 350px;
+
+  overflow: visible;
+}
+
+.tags-div {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: visible;
+}
+
+.tag-cont {
+  position: relative;
+  margin-top: 25px;
+  margin-left: 4px;
+  margin-right: 4px;
+
+  padding: 5px;
+
+  background-color: rgba(195, 195, 195, 0.179);
+  color: rgba(46, 46, 46, 0.394);
+  font-weight: bold;
+
+  backdrop-filter: blur(3px);
+  box-shadow: 0px 1px 3px 2px rgba(200, 200, 200, 0.154), 0px 1px 3px 2px rgba(173, 173, 173, 0.246);
+  overflow: visible;
+
+  border-radius: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.049);
+
+
+  flex-grow: 1;
+  text-align: center;
+  overflow: visible;
+
+  cursor: pointer;
+
+}
+
+.tag-count {
+  position: absolute;
+  top: -6px;
+  left: -4px;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.selected-tag-cont {
+  background-color: rgba(41, 199, 93, 0.179);
+}
+
+#nav-bar {
+  position: absolute;
+  bottom: -180px;
+  left: 0;
+
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.nav-ball {
+  display: inline-block;
+  padding: 15px;
+  transition: transform 0.2s ease;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.nav-ball:hover {
+  transform: scale(1.1);
+}
+
+.ball-name {
+  padding-left: 15px;
+}
