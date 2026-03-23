@@ -1,12 +1,32 @@
 <!DOCTYPE html>
+<html>
 <head>
   <script src="main.js"></script>
   <link rel="stylesheet" href="main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Share+Tech+Mono&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 </head>
-<html>
+<body>
+  <div id="welcome">
+    <h2>Welcome to my portfolio</h2>
+    <p>Here are some tips:</p>
+    <ul>
+      <li>Click tags to filter the list of projects</li>
+      <li>Tags have a counter to show how many projects include them</li>
+      <!-- <li>Click the ? icons for more information about myself and the projects</li> -->
+    </ul>
+    <p><i>Not a fan of websites and/or browsers?</i><br>
+    Read about my projects in your terminal:</p>
+    <code>
+      curl http://www.sammburr.me/projects/q<br/>
+      curl http://www.sammburr.me/projects/upulator<br/>
+      curl http://www.sammburr.me/projects/camera-routing-interface<br/>
+      curl http://www.sammburr.me/projects/fractal-renderer<br/>
+      curl http://www.sammburr.me/projects/godot-fps-plugin<br/>
+    </code>
+    <button id="welcome-btn">Proceed?</button>
+  </div>
 
   <div class="name-cont">
     Samuel Burford
@@ -19,11 +39,7 @@
     </svg>
   </div>
 
-  <div id="proj-cont-container">
-
-  </div>
-
-  <body>
-    <canvas id="vectorfield-canvas"></canvas>
-  </body> 
+  <div id="proj-cont-container"></div>
+  <canvas id="vectorfield-canvas"></canvas>
+</body>
 </html>

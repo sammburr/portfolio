@@ -21,6 +21,48 @@ canvas {
   cursor: crosshair;
 }
 
+#welcome {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: hsl(240, 73%, 49%);
+  z-index: 10000;
+  font-family: "Share Tech Mono", monospace;
+  color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#welcome button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  color: inherit;
+  font: inherit;
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+#welcome code {
+  display: block;
+  margin: 10px 0;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  text-align: left;
+}
+
+#welcome ul {
+  text-align: left;
+  margin: 10px 0;
+  list-style-position: inside;
+}
+
 .name-cont {
   padding: 10px;
   position: absolute;

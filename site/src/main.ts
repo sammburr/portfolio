@@ -8,6 +8,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
   console.log("Loaded DOM");
 
+  const welcomeBtn = document.getElementById("welcome-btn");
+  welcomeBtn.onclick = () => hideWelcome();
+  console.log(welcomeBtn);
+
+
   currentProject = projects.Q;
 
   const projContentContainer = document.getElementById("proj-cont-container")! as HTMLDivElement;
@@ -219,3 +224,8 @@ function toggleTag(tagElement : HTMLElement, tag : ProjectTag, tagsDiv : HTMLEle
   });
 }
 
+function hideWelcome()
+{
+  const welcome = document.getElementById("welcome");
+  welcome.style.display = "none";
+}
