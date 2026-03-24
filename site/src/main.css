@@ -231,3 +231,30 @@ button:hover {
   z-index: 100;
 
 }
+
+#hire-me {
+
+  padding-left: 150px;
+  padding-right: 150px;
+
+  background-color: blue;
+  color: white;
+
+  position: fixed;
+  z-index: 100;
+
+  top: 130px;
+  right: -140px;
+  transform: rotate(30deg);
+
+}
+
+#hire-me a {
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+
+#hire-me space {
+  height: 5px;
+  width: 50px;
+}
