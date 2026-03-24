@@ -4,6 +4,8 @@ import gsap from "gsap";
 var currentProject : Project = null;
 var selectedTags : ProjectTag[] = [];
 
+var showLinks = false;
+
 window.addEventListener("DOMContentLoaded", () => {
 
   console.log("Loaded DOM");
@@ -55,17 +57,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector<HTMLElement>(`.nav-ball[data-project="Q"] circle`)?.setAttribute("fill", "black");
 
-  // const keys = Object.keys(projects);
-  // const testBtn = Object.assign(document.createElement("button"), {
-  //   textContent: "Next Project",
-  //   style: "position:fixed;top:10px;right:10px;z-index:999;padding:8px 16px;cursor:pointer;",
-  // });
-  // testBtn.addEventListener("click", () => {
-  //   const currentIdx = keys.findIndex(k => (projects as Record<string, Project>)[k] === currentProject);
-  //   const nextKey = keys[(currentIdx + 1) % keys.length];
-  //   setCurrentProject(nextKey);
-  // });
-  // projContentContainer.appendChild(testBtn);
+  document.addEventListener("click", (e) => {
+    const linksCont = document.getElementById("float-links-cont");
+    const target = e.target as HTMLElement;
+    if (showLinks && !linksCont.contains(target) && !target.closest(".proj-link-btn")) {
+      linksCont.hidden = true;
+      showLinks = false;
+    }
+  });
 
 });
 
@@ -74,6 +73,9 @@ function setCurrentProject(key : string)
 {
   const newProject = (projects as Record<string, Project>)[key];
   if (!newProject || newProject === currentProject) return;
+
+  const linksCont = document.getElementById("float-links-cont");
+  linksCont.hidden = true;
 
   const cards = document.querySelectorAll<HTMLDivElement>(".proj-card");
   const ballNames = document.querySelectorAll<HTMLElement>(".ball-name");
@@ -128,11 +130,55 @@ function setCurrentProject(key : string)
 function projectCard(project : Project) : {main: HTMLElement, tags: HTMLElement}
 {
   const el = document.createElement("div");
-  el.className = "project-div";
+  el.className = "project-div glass-panel";
 
   el.appendChild(Object.assign(document.createElement("div"), { textContent: project.title, className: "proj-title" }));
   el.appendChild(Object.assign(document.createElement("div"), { textContent: project.subtitle, className: "proj-sub" }));
   el.appendChild(Object.assign(document.createElement("div"), { textContent: project.description, className: "proj-descript" }));
+
+  if(project.links.length > 0) {
+
+    const linksBtn = document.createElement("button");
+    linksBtn.className = "proj-link-btn";
+    linksBtn.title = "Open relevent links tab.";
+    linksBtn.innerHTML = "<img src=\"links.png\" width=\"20\"/>";
+    linksBtn.onclick = () => {
+      const linksCont = document.getElementById("float-links-cont");
+
+      if(!showLinks)
+      {
+        const rect = linksBtn.getBoundingClientRect();
+        linksCont.hidden = false;
+
+        gsap.from(linksCont, {
+          x: -20,
+        });
+
+        linksCont.style.top = rect.top + "px";
+        linksCont.style.left = rect.left + 25 + "px";
+
+        var linksHtml = "Relevant Links:</br><ul>";
+        
+        project.links.forEach((link) => {
+          linksHtml += "<li><a href=\"" + link.link + "\">" + link.title + "</a></li>";
+        });
+
+        linksHtml += "</ul>"
+
+        linksCont.innerHTML = linksHtml;
+
+        showLinks = true;
+      }
+      else {
+        linksCont.hidden = true;
+        showLinks = false;
+      }
+
+
+    };
+
+    el.appendChild(linksBtn);
+  }
 
   const tagEl = document.createElement("div");
   tagEl.className = "tags-div";
@@ -227,5 +273,20 @@ function toggleTag(tagElement : HTMLElement, tag : ProjectTag, tagsDiv : HTMLEle
 function hideWelcome()
 {
   const welcome = document.getElementById("welcome");
-  welcome.style.display = "none";
+  const wipe = document.getElementById("welcome-wipe");
+
+  const tl = gsap.timeline();
+
+  tl.to(wipe, {
+    x: 0,
+    duration: 0.5,
+    ease: "power2.inOut",
+    onComplete: () => { welcome.style.display = "none"; }
+  })
+  .to(wipe, {
+    x: "100%",
+    duration: 0.5,
+    ease: "power2.inOut",
+  })
+  .then(() => { wipe.remove(); });
 }

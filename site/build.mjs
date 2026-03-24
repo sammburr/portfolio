@@ -3,6 +3,7 @@ import { cpSync } from "fs";
 
 cpSync("src/index.html", "dist/index.html");
 cpSync("src/main.css", "dist/main.css");
+cpSync("src/assets", "dist", { recursive: true });
 
 await esbuild.build({
   entryPoints: ["src/main.ts"],

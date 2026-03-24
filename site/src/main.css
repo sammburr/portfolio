@@ -63,6 +63,17 @@ canvas {
   list-style-position: inside;
 }
 
+#welcome-wipe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(255, 0, 0);
+  z-index: 10001;
+  transform: translateX(-100%);
+}
+
 .name-cont {
   padding: 10px;
   position: absolute;
@@ -76,6 +87,14 @@ canvas {
   transform: translate(-50%, -50%);
   overflow: visible;
   max-width: 90vw;
+  z-index: 1;
+}
+
+.glass-panel {
+  backdrop-filter: blur(3px);
+  box-shadow: 0px 4px 10px 2px rgb(255, 255, 255), 0px 3px 10px 2px rgb(173, 173, 173);
+  border-radius: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.049);
 }
 
 .project-div {
@@ -84,12 +103,7 @@ canvas {
 
   max-width: 800px;
   width: 100%;
-  backdrop-filter: blur(3px);
-  box-shadow: 0px 4px 10px 2px rgb(255, 255, 255), 0px 3px 10px 2px rgb(173, 173, 173);
   overflow: visible;
-
-  border-radius: 4px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.049);
 
 }
 
@@ -111,6 +125,17 @@ canvas {
   min-width: 350px;
 
   overflow: visible;
+}
+
+.proj-link-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  overflow: visible;
+
+  cursor: pointer;
+  z-index: 500;
 }
 
 .tags-div {
@@ -184,4 +209,25 @@ canvas {
 
 .ball-name {
   padding-left: 15px;
+}
+
+button {
+  background: none;
+  cursor: pointer;
+
+  transition: 0.2s transform;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+#float-links-cont {
+
+  padding: 20px;
+
+  position: fixed;
+
+  z-index: 100;
+
 }

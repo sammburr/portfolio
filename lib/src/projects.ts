@@ -16,13 +16,15 @@ export class Project {
   subtitle : string = "";
   description : string = "";
   tags : ProjectTag[] = [];
+  links : ProjectLink[] = [];
 
-  constructor(title : string, subtitle : string, description : string, tags : ProjectTag[])
+  constructor(title : string, subtitle : string, description : string, tags : ProjectTag[], links : ProjectLink[])
   {
     this.title = title;
     this.subtitle = subtitle;
     this.description = description;
     this.tags = tags;
+    this.links = links;
   }
 
   toString(): string {
@@ -90,6 +92,17 @@ export class ProjectTag {
   }
 }
 
+export class ProjectLink {
+  title : String;
+  link : String;
+
+  constructor(title : String, link : String)
+  {
+    this.title = title;
+    this.link = link;
+  }
+}
+
 export const tags = {
   Elixir : new ProjectTag("Elixir", "#ffffffff"),
   Phx : new ProjectTag("Phoenix", "#ffffffff"),
@@ -109,6 +122,13 @@ export const tags = {
   Godot : new ProjectTag("Godot", "#ffffffff")
 };
 
+export const links = {
+  PEL : new ProjectLink("PEL", "https://www.proevents.ltd"),
+  UP : new ProjectLink("Universal Pixels", "https://universalpixels.com"),
+  AlmondBread : new ProjectLink("GitHub", "https://github.com/sammburr/almondBread"),
+  GodotFPSPlugin : new ProjectLink("GitHub", "https://github.com/sammburr/Basic-FPS-Player-GODOT-4.0")
+}
+
 export const projects = {
 
   Q : new Project(
@@ -121,6 +141,9 @@ export const projects = {
       tags.REST,
       tags.PostgreSQL,
       tags.Docker
+    ],
+    [
+      links.PEL
     ]
   ),
   Upulator : new Project(
@@ -135,7 +158,10 @@ export const projects = {
       tags.CPP,
       tags.PostgreSQL,
       tags.Nix
-    ] 
+    ],
+    [
+      links.UP
+    ]
   ),
   CameraRoutingInterface : new Project(
     "Camera Routing Interface",
@@ -147,26 +173,33 @@ export const projects = {
       tags.Teensy,
       tags.Websocket,
       tags.Blackmagic
+    ],
+    [
+
     ]
   ),
   OpenGLFractal : new Project(
     "OpenGL Fractal Renderer",
     "Personal project",
-    `A real-time fractal renderer written from scratch in C++ using OpenGL for GPU-accelerated rendering and ImGui for an interactive parameter UI. Supports deep zoom and live manipulation of fractal parameters.
-https://github.com/sammburr/almondBread`,
+    `A real-time fractal renderer written from scratch in C++ using OpenGL for GPU-accelerated rendering and ImGui for an interactive parameter UI. Supports deep zoom and live manipulation of fractal parameters.`,
     [
       tags.CPP,
       tags.OpenGL,
       tags.ImGui
+    ],
+    [
+      links.AlmondBread
     ]
   ),
   Godot4FPSPlugin : new Project(
     "Godot FPS Character Controller",
     "Open source",
-    `A reusable first-person character controller plugin for Godot 4, covering movement, camera handling, and common FPS mechanics. Published as an open source plugin and picked up by other developers in the Godot community.
-https://github.com/sammburr/Basic-FPS-Player-GODOT-4.0`,
+    `A reusable first-person character controller plugin for Godot 4, covering movement, camera handling, and common FPS mechanics. Published as an open source plugin and picked up by other developers in the Godot community.`,
     [
       tags.Godot
+    ],
+    [
+      links.GodotFPSPlugin
     ]
   )
 
